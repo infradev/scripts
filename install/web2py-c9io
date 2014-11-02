@@ -1,0 +1,14 @@
+#!/bin/sh
+echo "activating the web2py c9 installer ..."
+mkdir -p ~/workspace/install
+mkdir -p ~/workspace/bin
+wget http://www.web2py.com/examples/static/web2py_src.zip -O ~/workspace/install/web2py_src.zip
+unzip -q ~/workspace/install/web2py_src.zip -d ~/workspace
+
+echo "echo 'visit your site at http://$C9_PROJECT-c9.$C9_USER.c9.io'" > ~/workspace/bin/start_web2py
+echo "python ~/workspace/web2py/web2py.py -i $IP -p $PORT" >> ~/workspace/bin/start_web2py
+
+chmod +x ~/workspace/bin/start_web2py
+
+echo "-------------------------"
+echo "to launch web2py type: nohup ~/workspace/bin/start_web2py &"
